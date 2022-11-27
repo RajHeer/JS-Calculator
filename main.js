@@ -1,4 +1,17 @@
-console.log("Connected to JS file");
+// SELECTORS
+const screen = document.querySelector('#screen');
+const calcBtns = document.querySelectorAll('.calc-button');
+
+console.log(screen, calcBtns);
+
+// LISTENERS
+
+calcBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        console.log(e.target.innerText);
+    })
+  }
+)
 
 // BASIC OPERATIONS ***
 
