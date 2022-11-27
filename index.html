@@ -5,11 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-Calculator</title>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
+    <main>
+        <header>
+            <h1>JS Calculator</h1>
+        </header>
 
-    <h1>JS Calculator</h1>
-    
+        <section>
+            <article id="calc-body">
+                <!-- SCREEN -->
+                <div class="calc-screen" id="screen">12345</div>
+
+                <!-- 1ST ROW -->
+                <div class="calc-button" value="clear" id="clear">C</div>
+                <div class="calc-button" value="back" id="back">B</div>
+                <div class="calc-button" value="percent" id="percent">%</div>
+                <div class="calc-button" value="divide" id="divide">/</div>
+
+                <!-- 2ND ROW -->
+                <div class="calc-button" value="7" id="seven">7</div>
+                <div class="calc-button" value="8" id="eight">8</div>
+                <div class="calc-button" value="9" id="nine">9</div>
+                <div class="calc-button" value="*" id="multiply">*</div>
+
+                <!-- 3RD ROW -->
+                <div class="calc-button" value="4" id="four">4</div>
+                <div class="calc-button" value="5" id="five">5</div>
+                <div class="calc-button" value="6" id="six">6</div>
+                <div class="calc-button" value="-" id="minus">-</div>
+
+                <!-- 4TH ROW -->
+                <div class="calc-button" value="1" id="">1</div>
+                <div class="calc-button" value="2" id="">2</div>
+                <div class="calc-button" value="3" id="">3</div>
+                <div class="calc-button" value="+" id="">+</div>
+
+                <!-- 5TH ROW -->
+                <div class="calc-button" value="point" id="">.</div>
+                <div class="calc-button" value="0" id="">0</div>
+                <div class="calc-button" value="??" id="??">??</div>
+                <div class="calc-button" value="equals" id="">=</div>
+            </article>
+        </section>
+
+    </main>
 </body>
 </html>

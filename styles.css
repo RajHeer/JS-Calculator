@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+header {
+    margin: 50px auto;
+}
+
+div {
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+}
+
+#calc-body {
+    max-width: 300px;
+    max-height: 600px;
+    margin: 50px auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px black solid;
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, auto);
+    gap: 0.5rem;
+}
+
+#screen {
+    grid-column: 1 / 5;
+    text-align: right;
+    padding-right: 10px;
+}
