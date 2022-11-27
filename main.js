@@ -2,13 +2,11 @@
 const screen = document.querySelector('#screen');
 const calcBtns = document.querySelectorAll('.calc-button');
 
-console.log(screen, calcBtns);
-
 // LISTENERS
 
 calcBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        console.log(e.target.innerText);
+        display(e.target.innerText);
     })
   }
 )
@@ -50,8 +48,12 @@ function operate (operator, num1, num2) {
     }
 }
 
-console.log("Add " + add(1,2));
-console.log("Subtract " + subtract(1,2));
-console.log("Multiply " + multiply(1,2));
-console.log("Divide " + divide(1,2));
-console.log("Operator " + operate("/",1,2));
+// DISPLAY FUNCTION
+
+function display (str) {
+    if (screen.innerText === '0') {
+        screen.innerText = str;
+    } else {
+        screen.innerText += str;
+    }
+}
