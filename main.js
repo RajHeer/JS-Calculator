@@ -50,8 +50,11 @@ function operate (operator, num1, num2) {
 
 // DISPLAY FUNCTION
 
-function display (str) {
-    if (screen.innerText === '0') {
+function display (str) { 
+    if (str === 'C') {
+        screen.innerText = '0';
+    }   
+    else if (screen.innerText === '0') {
         screen.innerText = str;
     } else {
         screen.innerText += str;
