@@ -56,7 +56,12 @@ function display (str) {
     }   
     else if (screen.innerText === '0') {
         screen.innerText = str;
-    } else {
+    } else if (str === "+" || str === "-" ||
+               str === "*" || str === "/") {
+        screen.innerText += ` ${str} `;
+    }
+    
+    else {
         screen.innerText += str;
     }
 }
