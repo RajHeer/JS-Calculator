@@ -57,10 +57,11 @@ function display (str) {
         screen.innerText = str;
     } // If one of the operator keys is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
-        // ...and there's already 
+        // ...and there's already a displayed operator
         if (/[\+\-\*\/]/.test(screen.innerText)) {
-            //...then call the operator function.
+            //...then call the operator function
             console.log("Call operator function");
+          //...otherwise add the operator to screen.
         } else {
             screen.innerText += `\u00a0${str}\u00a0`;
         }
