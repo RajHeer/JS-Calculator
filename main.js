@@ -55,11 +55,14 @@ function display (str) {
         screen.innerText = '0';
     } else if (screen.innerText === '0') {
         screen.innerText = str;
-    } else if (/[\+\-\*\/]/.test(str)) {
+    } // If one of the operator keys is clicked...
+      else if (/[\+\-\*\/]/.test(str)) {
+        // ...and there's already 
         if (/[\+\-\*\/]/.test(screen.innerText)) {
+            //...then call the operator function.
             console.log("Call operator function");
         } else {
-            screen.innerText += ` ${str} `;
+            screen.innerText += `\u00a0${str}\u00a0`;
         }
     } else {
         screen.innerText += str;
