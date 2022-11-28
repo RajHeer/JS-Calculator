@@ -53,15 +53,15 @@ function operate (operator, num1, num2) {
 function display (str) { 
     if (str === 'C') {
         screen.innerText = '0';
-    }   
-    else if (screen.innerText === '0') {
+    } else if (screen.innerText === '0') {
         screen.innerText = str;
-    } else if (str === "+" || str === "-" ||
-               str === "*" || str === "/") {
-        screen.innerText += ` ${str} `;
-    }
-    
-    else {
+    } else if (/[\+\-\*\/]/.test(str)) {
+        if (/[\+\-\*\/]/.test(screen.innerText)) {
+            console.log("Call operator function");
+        } else {
+            screen.innerText += ` ${str} `;
+        }
+    } else {
         screen.innerText += str;
     }
 }
