@@ -13,8 +13,8 @@ calcBtns.forEach(btn => {
 
 // BASIC OPERATIONS ***
 
-function add (num1, num2) {
-    return num1 + num2;
+function add (num1, num2, operator2) {
+    screen.innerText = `${num1 + num2}${operator2}`;
 }
 
 function subtract (num1, num2) {
@@ -31,10 +31,13 @@ function divide (num1, num2) {
 
 //OPERATOR FUNCTION
 
-function operate (operator, num1, num2) {
+function operate (displayStr, operator2) {
+    let [num1, operator, num2] = displayStr.split(/\s/);
+    num1 = Number(num1);
+    num2 = Number(num2);
     switch (operator) {
         case "+":
-            return add(num1, num2);
+            return add(num1, num2, operator2);
             break;
         case "-":
             return subtract(num1, num2);
@@ -51,7 +54,7 @@ function operate (operator, num1, num2) {
 // DISPLAY FUNCTION
 
 function display (str) { 
-    if (str === 'C') {
+    if (str === 'clear') {
         screen.innerText = '0';
     } else if (screen.innerText === '0') {
         screen.innerText = str;
@@ -60,7 +63,7 @@ function display (str) {
         // ...and there's already a displayed operator
         if (/[\+\-\*\/]/.test(screen.innerText)) {
             //...then call the operator function
-            console.log(screen.innerText + str);
+            operate(screen.innerText, str);
           //...otherwise add the operator to screen.
         } else {
             screen.innerText += str;
