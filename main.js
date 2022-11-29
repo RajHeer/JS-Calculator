@@ -6,7 +6,7 @@ const calcBtns = document.querySelectorAll('.calc-button');
 
 calcBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        display(e.target.innerText);
+        display(e.target.dataset.value);
     })
   }
 )
@@ -60,10 +60,10 @@ function display (str) {
         // ...and there's already a displayed operator
         if (/[\+\-\*\/]/.test(screen.innerText)) {
             //...then call the operator function
-            console.log("Call operator function");
+            console.log(screen.innerText + str);
           //...otherwise add the operator to screen.
         } else {
-            screen.innerText += `\u00a0${str}\u00a0`;
+            screen.innerText += str;
         }
     } else {
         screen.innerText += str;
