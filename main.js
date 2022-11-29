@@ -56,22 +56,23 @@ function operate (displayStr, operator2 = '') {
 function display (str) { 
     if (str === 'clear') {
         screen.innerText = '0';
-    } else if (screen.innerText === '0') {
+    } else if (screen.innerText === '0' &&
+               str != ' = ') {
         screen.innerText = str;
     } else if (str === " = " && 
         /\d+\s[\+\-\*\/]\s\d/.test(screen.innerText)) {
         operate(screen.innerText);
-    } // If one of the operator keys is clicked...
+    } // If operand key is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
-        // ...and there's already a displayed operator
+      // ...and display contains existing operand
         if (/[\+\-\*\/]/.test(screen.innerText)) {
-            //...then call the operator function
+            //...call the operator function
             operate(screen.innerText, str);
-          //...otherwise add the operator to screen.
+      //...else add this operand to screen.
         } else {
             screen.innerText += str;
         }
-    } else {
+    } else if (str != ' = ') {
         screen.innerText += str;
     }
 }
