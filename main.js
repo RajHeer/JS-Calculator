@@ -13,25 +13,25 @@ calcBtns.forEach(btn => {
 
 // BASIC OPERATIONS ***
 
-function add (num1, num2, operator2) {
+function add (num1, num2, operator2 = '') {
     screen.innerText = `${num1 + num2}${operator2}`;
 }
 
-function subtract (num1, num2, operator2) {
+function subtract (num1, num2, operator2 ='') {
     screen.innerText = `${num1 - num2}${operator2}`;
 }
 
-function multiply (num1, num2, operator2) {
+function multiply (num1, num2, operator2 ='') {
     screen.innerText = `${num1 * num2}${operator2}`;
 }
 
-function divide (num1, num2, operator2) {
+function divide (num1, num2, operator2 ='') {
     screen.innerText = `${num1 / num2}${operator2}`;
 }
 
 //OPERATOR FUNCTION
 
-function operate (displayStr, operator2) {
+function operate (displayStr, operator2 = '') {
     let [num1, operator, num2] = displayStr.split(/\s/);
     num1 = Number(num1);
     num2 = Number(num2);
@@ -58,6 +58,9 @@ function display (str) {
         screen.innerText = '0';
     } else if (screen.innerText === '0') {
         screen.innerText = str;
+    } else if (str === " = " && 
+        /\d+\s[\+\-\*\/]\s\d/.test(screen.innerText)) {
+        operate(screen.innerText);
     } // If one of the operator keys is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
         // ...and there's already a displayed operator
