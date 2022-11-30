@@ -1,6 +1,6 @@
 # JS-Calculator
 
-IN PROGRESS - JS Calculator. See [here] (https://rajheer.github.io/JS-Calculator/.)
+IN PROGRESS - JS Calculator. See [here](https://rajheer.github.io/JS-Calculator/).
 
 ## About
 
