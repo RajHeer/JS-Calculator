@@ -29,6 +29,16 @@ function divide (num1, num2, operator2 ='') {
     screen.innerText = `${num1 / num2}${operator2}`;
 }
 
+function percent (num) {
+    value = num / 100;
+    if (value < 0.000001) {
+        screen.innerText = 'ERROR'
+    } else {
+        screen.innerText = `${num / 100}`;
+    }
+    
+}
+
 //OPERATOR FUNCTION
 
 function operate (displayStr, operator2 = '') {
@@ -48,6 +58,9 @@ function operate (displayStr, operator2 = '') {
         case "/":
             return divide(num1, num2, operator2);
             break;
+        case "%":
+            return percent(num1);
+            break;
     }
 }
 
@@ -57,14 +70,15 @@ function display (str) {
     if (str === 'clear') {
         screen.innerText = '0';
     } else if (screen.innerText === '0' &&
-               str != ' = ') {
+               str != ' = ' && str != ' % ') {
         screen.innerText = str;
-    } else if (str === " = " && 
+    } // Call operate when '=' is input after valid expression
+      else if (str === ' = ' && 
         /\d+\s[\+\-\*\/]\s\d/.test(screen.innerText)) {
         operate(screen.innerText);
     } // If operand key is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
-      // ...and display contains existing operand
+      // ...and display already contains existing operand
         if (/[\+\-\*\/]/.test(screen.innerText)) {
             //...call the operator function
             operate(screen.innerText, str);
@@ -72,7 +86,10 @@ function display (str) {
         } else {
             screen.innerText += str;
         }
-    } else if (str != ' = ') {
+    } else if (str === ' % ' && /[1-9]/.test(screen.innerText)) {
+        screen.innerText += str;
+        setTimeout(operate(screen.innerText), 5000);
+    } else if (str != ' = ' && str != ' % ') {
         screen.innerText += str;
     }
 }
