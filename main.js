@@ -11,22 +11,39 @@ calcBtns.forEach(btn => {
   }
 )
 
-// BASIC OPERATIONS ***
+// BASIC OPERATIONS (AND HANDLING PERCENTAGE EXPRESSIONS) ***
 
 function add (num1, num2, operator2 = '') {
-    screen.innerText = `${num1 + num2}${operator2}`;
+    if (operator2 === ' % ') {
+       screen.innerText = `${num1 + num1 * (num2/100)}`
+    } else {
+       screen.innerText = `${num1 + num2}${operator2}`; 
+    }
 }
 
 function subtract (num1, num2, operator2 ='') {
-    screen.innerText = `${num1 - num2}${operator2}`;
+    if (operator2 === ' % ') {
+        screen.innerText = `${num1 - num1 * (num2/100)}`
+     } else {
+        screen.innerText = `${num1 - num2}${operator2}`;
+     }
+    
 }
 
 function multiply (num1, num2, operator2 ='') {
-    screen.innerText = `${num1 * num2}${operator2}`;
+    if (operator2 === ' % ') {
+        screen.innerText = `${num1 / (100/num2)}`
+     } else {
+        screen.innerText = `${num1 * num2}${operator2}`;
+     }
 }
 
 function divide (num1, num2, operator2 ='') {
-    screen.innerText = `${num1 / num2}${operator2}`;
+    if (operator2 === ' % ') {
+        screen.innerText = `${num1 * (100/num2)}`
+     } else {
+        screen.innerText = `${num1 / num2}${operator2}`;
+     }
 }
 
 function percent (num) {
@@ -69,6 +86,8 @@ function operate (displayStr, operator2 = '') {
 function display (str) { 
     if (str === 'clear') {
         screen.innerText = '0';
+    } else if (screen.innerText === 'ERROR') {
+        screen.innerText === 'ERROR';
     } else if (screen.innerText === '0' &&
                str != ' = ' && str != ' % ') {
         screen.innerText = str;
@@ -88,7 +107,7 @@ function display (str) {
         }
     } else if (str === ' % ' && /[1-9]/.test(screen.innerText)) {
         screen.innerText += str;
-        setTimeout(operate(screen.innerText), 5000);
+        operate(screen.innerText, str);
     } else if (str != ' = ' && str != ' % ') {
         screen.innerText += str;
     }
