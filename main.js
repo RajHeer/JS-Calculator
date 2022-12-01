@@ -88,8 +88,8 @@ function display (str) {
         screen.innerText = '0';
     } else if (screen.innerText === 'ERROR') {
         screen.innerText === 'ERROR';
-    } else if (screen.innerText === '0' &&
-               str != ' = ' && str != ' % ') {
+    } else if (screen.innerText === '0' && str != 'back'
+               && str != ' = ' && str != ' % ') {
         screen.innerText = str;
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
@@ -108,7 +108,16 @@ function display (str) {
     } else if (str === ' % ' && /[1-9]/.test(screen.innerText)) {
         screen.innerText += str;
         operate(screen.innerText, str);
+    } else if (str === 'back') {
+        if (screen.innerText.length > 1) {
+        const displayed = screen.innerText;
+        const amendedDisplay = displayed.split('').slice(0,-1).join('');
+        screen.innerText = amendedDisplay;
+        } else {
+            screen.innerText = '0';
+        }
+        // screen.innerText = amendedDisplay;
     } else if (str != ' = ' && str != ' % ') {
         screen.innerText += str;
-    }
+    } 
 }
