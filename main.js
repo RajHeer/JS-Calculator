@@ -107,7 +107,11 @@ function display (str) {
         }
     } else if (str === ' % ' && /[1-9]/.test(screen.innerText)) {
         screen.innerText += str;
-        operate(screen.innerText, str);
+        setTimeout(operate, 250, screen.innerText, str);
+    } else if (str === '.') {
+        if (/\d+[^\.]/.test(screen.innerText)) {
+            screen.innerText += str;
+        }
     } else if (str === 'back') {
         if (screen.innerText.length > 1) {
         const displayed = screen.innerText;
@@ -116,7 +120,6 @@ function display (str) {
         } else {
             screen.innerText = '0';
         }
-        // screen.innerText = amendedDisplay;
     } else if (str != ' = ' && str != ' % ') {
         screen.innerText += str;
     } 
