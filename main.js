@@ -93,7 +93,7 @@ function display (str) {
         screen.innerText = str;
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
-        /\d+\s[\+\-\*\/]\s\d/.test(screen.innerText)) {
+        /\d+\s[\+\-\*\/]\s[\.]\d/.test(screen.innerText)) {
         operate(screen.innerText);
     } // If operand key is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
@@ -109,7 +109,9 @@ function display (str) {
         screen.innerText += str;
         setTimeout(operate, 250, screen.innerText, str);
     } else if (str === '.') {
-        if (/\d+[^\.]/.test(screen.innerText)) {
+        if (/\.\d+$/.test(screen.innerText)) {
+            screen.innerText;
+        } else if (/\d$|[\+\-\*\/]\s$/.test(screen.innerText)) {
             screen.innerText += str;
         }
     } else if (str === 'back') {
