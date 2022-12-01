@@ -93,7 +93,7 @@ function display (str) {
         screen.innerText = str;
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
-        /\d+\s[\+\-\*\/]\s[\.]\d/.test(screen.innerText)) {
+        /(\d+)?(\.)?\d+\s[\+\-\*\/]\s(\d+)?(\.)\d+/.test(screen.innerText)) {
         operate(screen.innerText);
     } // If operand key is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
