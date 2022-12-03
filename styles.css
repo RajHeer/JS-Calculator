@@ -13,6 +13,8 @@
 body {
     height: 100vh;
     font-family: 'Orbitron', sans-serif;
+    background: rgb(254,249,255);
+    background: linear-gradient(140deg, rgba(254,249,255,1) 31%, rgba(255,0,200,1) 100%);
 }
 
 main {
@@ -46,7 +48,7 @@ div {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, auto);
     gap: 0.4rem;
-    box-shadow: 4px 6px 15px gray;
+    box-shadow: 10px 15px 15px black;
 }
 
 #screen {

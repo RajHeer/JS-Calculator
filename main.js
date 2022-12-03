@@ -19,7 +19,7 @@ function add (num1, num2, operator2 = '') {
        screen.innerText = `${num1 + num1 * (num2/100)}`;
        displaySize();
     } else {
-       screen.innerText = `${(num1 + num2).toFixed(3)}${operator2}`; 
+       screen.innerText = `${(num1 + num2)}${operator2}`; 
        displaySize();
     }
 }
@@ -29,7 +29,7 @@ function subtract (num1, num2, operator2 ='') {
         screen.innerText = `${num1 - num1 * (num2/100)}`;
         displaySize();
      } else {
-        screen.innerText = `${(num1 - num2).toFixed(3)}${operator2}`;
+        screen.innerText = `${(num1 - num2)}${operator2}`;
         displaySize();
      }
     
@@ -40,7 +40,7 @@ function multiply (num1, num2, operator2 ='') {
         screen.innerText = `${num1 / (100/num2)}`;
         displaySize();
      } else {
-        screen.innerText = `${(num1 * num2).toFixed(3)}${operator2}`;
+        screen.innerText = `${(num1 * num2)}${operator2}`;
         displaySize();
      }
 }
@@ -50,7 +50,7 @@ function divide (num1, num2, operator2 ='') {
         screen.innerText = `${num1 * (100/num2)}`;
         displaySize();
      } else {
-        screen.innerText = `${(num1 / num2).toFixed(3)}${operator2}`;
+        screen.innerText = `${(num1 / num2)}${operator2}`;
         displaySize();
      }
 }
@@ -102,25 +102,25 @@ function display (str) {
         screen.innerText === 'ERROR';
         displaySize();
     } else if (screen.innerText === '0' && str != 'back'
-               && str != ' = ' && str != ' % ') {
+               && str != ' = ' && str != ' % ' && str != 'plus-minus') {
         screen.innerText = str;
         displaySize();
     } else if (str === 'plus-minus') {
         if (/\-\d+(\.)?(\d+)?$/.test(screen.innerText)) {
             screen.innerText = screen.innerText.replace(/(\-)(\d+)(\.)?(\d+)?$/, "$2$3$4");
             displaySize();
-        } else {
+        } else if (screen.innerText != '0') {
             screen.innerText = screen.innerText.replace(/(\d+)(\.)?(\d+)?$/, "-$1$2$3");
             displaySize();
         }  
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
-        /(\d+)?(\.)?\d+\s[\+\-\*\/]\s(\d+)?(\.)?\d+/.test(screen.innerText)) {
+        /(\-)?(\d+)?(\.)?\d+\s[\+\-\*\/]\s(\-)?(\d+)?(\.)?\d+/.test(screen.innerText)) {
         operate(screen.innerText);
     } // If operand key is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
       // ...and display already contains existing operand
-        if (/[\+\-\*\/]/.test(screen.innerText)) {
+        if (/(\d+)[\+\-\*\/]/.test(screen.innerText)) {
             //...call the operator function
             operate(screen.innerText, str);
       //...else add this operand to screen.
