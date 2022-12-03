@@ -1,4 +1,5 @@
 // SELECTORS
+const root = document.documentElement;
 const screen = document.querySelector('#screen');
 const calcBtns = document.querySelectorAll('.calc-button');
 
@@ -15,43 +16,53 @@ calcBtns.forEach(btn => {
 
 function add (num1, num2, operator2 = '') {
     if (operator2 === ' % ') {
-       screen.innerText = `${num1 + num1 * (num2/100)}`
+       screen.innerText = `${num1 + num1 * (num2/100)}`;
+       displaySize();
     } else {
        screen.innerText = `${num1 + num2}${operator2}`; 
+       displaySize();
     }
 }
 
 function subtract (num1, num2, operator2 ='') {
     if (operator2 === ' % ') {
-        screen.innerText = `${num1 - num1 * (num2/100)}`
+        screen.innerText = `${num1 - num1 * (num2/100)}`;
+        displaySize();
      } else {
         screen.innerText = `${num1 - num2}${operator2}`;
+        displaySize();
      }
     
 }
 
 function multiply (num1, num2, operator2 ='') {
     if (operator2 === ' % ') {
-        screen.innerText = `${num1 / (100/num2)}`
+        screen.innerText = `${num1 / (100/num2)}`;
+        displaySize();
      } else {
         screen.innerText = `${num1 * num2}${operator2}`;
+        displaySize();
      }
 }
 
 function divide (num1, num2, operator2 ='') {
     if (operator2 === ' % ') {
-        screen.innerText = `${num1 * (100/num2)}`
+        screen.innerText = `${num1 * (100/num2)}`;
+        displaySize();
      } else {
         screen.innerText = `${num1 / num2}${operator2}`;
+        displaySize();
      }
 }
 
 function percent (num) {
     value = num / 100;
     if (value < 0.000001) {
-        screen.innerText = 'ERROR'
+        screen.innerText = 'ERROR';
+        displaySize();
     } else {
         screen.innerText = `${num / 100}`;
+        displaySize();
     }
     
 }
@@ -86,11 +97,14 @@ function operate (displayStr, operator2 = '') {
 function display (str) { 
     if (str === 'clear') {
         screen.innerText = '0';
+        displaySize();
     } else if (screen.innerText === 'ERROR') {
         screen.innerText === 'ERROR';
+        displaySize();
     } else if (screen.innerText === '0' && str != 'back'
                && str != ' = ' && str != ' % ') {
         screen.innerText = str;
+        displaySize();
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
         /(\d+)?(\.)?\d+\s[\+\-\*\/]\s(\d+)?(\.)?\d+/.test(screen.innerText)) {
@@ -104,25 +118,42 @@ function display (str) {
       //...else add this operand to screen.
         } else {
             screen.innerText += str;
+            displaySize();
         }
     } else if (str === ' % ' && /[1-9]/.test(screen.innerText)) {
         screen.innerText += str;
+        displaySize();
         setTimeout(operate, 250, screen.innerText, str);
     } else if (str === '.') {
         if (/\.\d+$/.test(screen.innerText)) {
             screen.innerText;
         } else if (/\d$|[\+\-\*\/]\s$/.test(screen.innerText)) {
             screen.innerText += str;
+            displaySize();
         }
     } else if (str === 'back') {
         if (screen.innerText.length > 1) {
         const displayed = screen.innerText;
         const amendedDisplay = displayed.split('').slice(0,-1).join('');
         screen.innerText = amendedDisplay;
+        displaySize();
         } else {
             screen.innerText = '0';
+            displaySize();
         }
     } else if (str != ' = ' && str != ' % ') {
         screen.innerText += str;
+        displaySize();
+       
     } 
+}
+
+function displaySize () {
+    if (screen.innerText.length > 11) {
+        root.style.setProperty('--font-size', "1rem"); 
+    } else if (screen.innerText.length > 8) {
+        root.style.setProperty('--font-size', "1.4rem");
+    } else {
+        root.style.setProperty('--font-size', "1.8rem");
+    }
 }
