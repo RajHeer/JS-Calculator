@@ -108,8 +108,10 @@ function display (str) {
     } else if (str === 'plus-minus') {
         if (/\-\d+(\.)?(\d+)?$/.test(screen.innerText)) {
             screen.innerText = screen.innerText.replace(/(\-)(\d+)(\.)?(\d+)?$/, "$2$3$4");
+            displaySize();
         } else {
             screen.innerText = screen.innerText.replace(/(\d+)(\.)?(\d+)?$/, "-$1$2$3");
+            displaySize();
         }  
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
@@ -156,10 +158,10 @@ function display (str) {
 
 function displaySize () {
     if (screen.innerText.length > 10) {
-        root.style.setProperty('--font-size', "1.5rem"); 
+        root.style.setProperty('--font-size', "1.2rem"); 
     } else if (screen.innerText.length > 8) {
-        root.style.setProperty('--font-size', "2rem");
+        root.style.setProperty('--font-size', "1.5rem");
     } else {
-        root.style.setProperty('--font-size', "2.5rem");
+        root.style.setProperty('--font-size', "1.8rem");
     }
 }
