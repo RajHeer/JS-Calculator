@@ -105,6 +105,12 @@ function display (str) {
                && str != ' = ' && str != ' % ') {
         screen.innerText = str;
         displaySize();
+    } else if (str === 'plus-minus') {
+        if (/\-\d+(\.)?(\d+)?$/.test(screen.innerText)) {
+            screen.innerText = screen.innerText.replace(/(\-)(\d+)(\.)?(\d+)?$/, "$2$3$4");
+        } else {
+            screen.innerText = screen.innerText.replace(/(\d+)(\.)?(\d+)?$/, "-$1$2$3");
+        }  
     } // Call operate when '=' is input after valid expression
       else if (str === ' = ' && 
         /(\d+)?(\.)?\d+\s[\+\-\*\/]\s(\d+)?(\.)?\d+/.test(screen.innerText)) {
