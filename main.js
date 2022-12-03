@@ -149,7 +149,7 @@ function display (str) {
 }
 
 function displaySize () {
-    if (screen.innerText.length > 11) {
+    if (screen.innerText.length > 10) {
         root.style.setProperty('--font-size', "1.5rem"); 
     } else if (screen.innerText.length > 8) {
         root.style.setProperty('--font-size', "2rem");

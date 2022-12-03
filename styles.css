@@ -37,7 +37,7 @@ div {
 #calc-body {
     max-width: 250px;
     min-height: 350px;
-    margin: 50px auto;
+    margin: 25px auto;
     padding: 10px;
     border-radius: 10px;
     border: 1px black solid;
@@ -51,6 +51,7 @@ div {
 
 #screen {
     grid-column: 1 / 5;
+    min-height: 85px;
     text-align: right;
     padding-right: 10px;
     font-size: var(--font-size);
