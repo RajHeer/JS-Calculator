@@ -19,7 +19,7 @@ function add (num1, num2, operator2 = '') {
        screen.innerText = `${num1 + num1 * (num2/100)}`;
        displaySize();
     } else {
-       screen.innerText = `${num1 + num2}${operator2}`; 
+       screen.innerText = `${(num1 + num2).toFixed(3)}${operator2}`; 
        displaySize();
     }
 }
@@ -29,7 +29,7 @@ function subtract (num1, num2, operator2 ='') {
         screen.innerText = `${num1 - num1 * (num2/100)}`;
         displaySize();
      } else {
-        screen.innerText = `${num1 - num2}${operator2}`;
+        screen.innerText = `${(num1 - num2).toFixed(3)}${operator2}`;
         displaySize();
      }
     
@@ -40,7 +40,7 @@ function multiply (num1, num2, operator2 ='') {
         screen.innerText = `${num1 / (100/num2)}`;
         displaySize();
      } else {
-        screen.innerText = `${num1 * num2}${operator2}`;
+        screen.innerText = `${(num1 * num2).toFixed(3)}${operator2}`;
         displaySize();
      }
 }
@@ -50,7 +50,7 @@ function divide (num1, num2, operator2 ='') {
         screen.innerText = `${num1 * (100/num2)}`;
         displaySize();
      } else {
-        screen.innerText = `${num1 / num2}${operator2}`;
+        screen.innerText = `${(num1 / num2).toFixed(3)}${operator2}`;
         displaySize();
      }
 }
@@ -150,10 +150,10 @@ function display (str) {
 
 function displaySize () {
     if (screen.innerText.length > 11) {
-        root.style.setProperty('--font-size', "1rem"); 
+        root.style.setProperty('--font-size', "1.5rem"); 
     } else if (screen.innerText.length > 8) {
-        root.style.setProperty('--font-size', "1.4rem");
+        root.style.setProperty('--font-size', "2rem");
     } else {
-        root.style.setProperty('--font-size', "1.8rem");
+        root.style.setProperty('--font-size', "2.5rem");
     }
 }
