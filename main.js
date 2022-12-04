@@ -110,11 +110,11 @@ function display (str) {
         screen.innerText = str;
         displaySize();
     } else if (str === 'plus-minus') {
-        if (/\-\d+(\.)?(\d+)?$/.test(screen.innerText)) {
-            screen.innerText = screen.innerText.replace(/(\-)(\d+)(\.)?(\d+)?$/, "$2$3$4");
+        if (/\-(\.)?\d+(\.)?(\d+)?$/.test(screen.innerText)) {
+            screen.innerText = screen.innerText.replace(/(\-)(\.)?(\d+)(\.)?(\d+)?$/, "$2$3$4$5");
             displaySize();
         } else if (screen.innerText != '0') {
-            screen.innerText = screen.innerText.replace(/(\d+)(\.)?(\d+)?$/, "-$1$2$3");
+            screen.innerText = screen.innerText.replace(/(\.)?(\d+)(\.)?(\d+)?$/, "-$1$2$3$4");
             displaySize();
         }  
     } // Call operate when '=' is input after valid expression
