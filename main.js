@@ -8,6 +8,10 @@ const calcBtns = document.querySelectorAll('.calc-button');
 calcBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         display(e.target.dataset.value);
+        btn.classList.add('pressed');
+    })
+    btn.addEventListener('transitionend', (e) => {
+        e.target.classList.remove('pressed');
     })
   }
 )

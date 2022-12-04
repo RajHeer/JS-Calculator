@@ -64,4 +64,13 @@ div {
 
 .calc-button {
     box-shadow: 1px 3px 1px gray;
+    transition: all 0.3s ease;
+}
+
+.pressed {
+    position: relative;
+    top: 2px;
+    border: 1px solid rgb(162, 0, 255);
+    color: rgb(162, 0, 255);
+    box-shadow: 1px 1px 1px rgb(162, 0, 255);
 }
