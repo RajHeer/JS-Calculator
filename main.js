@@ -124,7 +124,7 @@ function display (str) {
     } // If operand key is clicked...
       else if (/[\+\-\*\/]/.test(str)) {
       // ...and display already contains existing operand
-        if (/(\d+)[\+\-\*\/]/.test(screen.innerText)) {
+        if (/(\-)?(\.)?(\d+)\s[\+\-\*\/]/.test(screen.innerText)) {
             //...call the operator function
             operate(screen.innerText, str);
       //...else add this operand to screen.
