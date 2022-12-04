@@ -102,14 +102,16 @@ function display (str) {
     if (str === 'clear') {
         screen.innerText = '0';
         displaySize();
-    } else if (screen.innerText === 'ERROR') {
+    } // Error can only be removed by clear key due to order of conditions
+    else if (screen.innerText === 'ERROR') {
         screen.innerText === 'ERROR';
         displaySize();
     } else if (screen.innerText === '0' && str != 'back'
                && str != ' = ' && str != ' % ' && str != 'plus-minus') {
         screen.innerText = str;
         displaySize();
-    } else if (str === 'plus-minus') {
+    } //Toggle the number sign; regex capture groups for different number format options 
+    else if (str === 'plus-minus') {
         if (/\-(\.)?\d+(\.)?(\d+)?$/.test(screen.innerText)) {
             screen.innerText = screen.innerText.replace(/(\-)(\.)?(\d+)(\.)?(\d+)?$/, "$2$3$4$5");
             displaySize();
