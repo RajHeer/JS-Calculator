@@ -60,8 +60,8 @@ function divide (num1, num2, operator2 ='') {
 }
 
 function percent (num) {
-    value = num / 100;
-    if (value < 0.000001) {
+    let displayVal = num / 100;
+    if (displayVal < 0.000001) {
         screen.innerText = 'ERROR';
         displaySize();
     } else {

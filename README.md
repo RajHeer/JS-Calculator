@@ -18,7 +18,7 @@ Final project for The Odin Project (Foundation) cirriculum. Instructions are [he
 
 ## To do
 
-1. Refactor large display function (split logic into smaller functions which are called in turn).
+1. Refactor code (set up calculator module, use closure, remove global variables etc);
 
-2. Reorder code so flows sequentially through the order functions are called and pass arguments to each other.
+2. Refactor large display function (split logic into smaller functions which are called in turn).
  
